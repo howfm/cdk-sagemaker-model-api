@@ -23,14 +23,24 @@ const questions = [
     {
         type: "input",
         name: "stageName",
-        message: "Name of the stage",
-        // TODO: Validate?
+        message: "Name of the stage (only alphanumerics and - and _)",
+        validate: (value: string) => {
+            if (/[^a-z0-9_-]/i.test(value)) {
+                return "The name of the stage is only allowed to contain alphanumerics and - and _";
+            }
+            return true;
+        },
     },
     {
         type: "input",
         name: "awsAccount",
         message: "AWS Account Number",
-        // TODO: Validate?
+        validate: (value: string) => {
+            if (/^\d{12}$/i.test(value)) {
+                return true;
+            }
+            return "Not a valid AWS Account Number.";
+        },
     },
     {
         type: "list",
@@ -99,8 +109,13 @@ const questions = [
     {
         type: "input",
         name: "modelName",
-        message: "Name of the model (no spaces allowed)",
-        // TODO: Validate?
+        message: "Name of the model (only alphanumerics and - and _)",
+        validate: (value: string) => {
+            if (/[^a-z0-9_-]/i.test(value)) {
+                return "The name of the model is only allowed to contain alphanumerics and - and _";
+            }
+            return true;
+        },
     },
     {
         type: "list",
@@ -112,9 +127,14 @@ const questions = [
     {
         type: "input",
         name: "modelS3Path",
-        message: "Model S3 Path",
+        message: "Model S3 Path (e.g. s3://demo/model/model.tar.gz)",
         when: (answers: Answers) => answers.modelLocation === "S3",
-        // TODO: Validate?
+        validate: (value: string) => {
+            if (/^s3:\/\/([^/]+)\/([\w\W]+)\.(.*)/i.test(value)) {
+                return true;
+            }
+            return "Not a valid S3 path.";
+        },
     },
     {
         type: "input",

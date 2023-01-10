@@ -14,7 +14,6 @@ from src.inference.handler_service import ModelHandler
 handler = ModelHandler()
 
 app = Flask(__name__)
-# TODO: Can the lambda logger be used inside sagemaker? :thinking:
 logging.basicConfig(level=logging.DEBUG)
 
 

@@ -34,7 +34,6 @@ export class ModelServingStack extends Stack {
         );
 
         const endpointConfigName = `${endpointName}-CONFIG-${time}`;
-        // TODO: Enable data logging in S3? -> Future iterations.
         const endpointConfig = this.createEndpointConfig(endpointConfigName, model, sagemakerOptions);
 
         this.deployEndpoint(endpointName, endpointConfig);
@@ -92,13 +91,6 @@ export class ModelServingStack extends Stack {
         const endpointConfig = new sagemaker.CfnEndpointConfig(this, endpointConfigName, {
             endpointConfigName: endpointConfigName,
             productionVariants: [variant],
-            // TODO: Data capture (see above) -> Future iterations
-            // dataCaptureConfig: {
-            //     captureOptions: [{ captureMode: "Input" }, { captureMode: "Output" }],
-            //     enableCapture: props.dataLoggingEnable,
-            //     destinationS3Uri: `s3://${props.dataLoggingBucketName}/${props.dataLoggingS3Key}`,
-            //     initialSamplingPercentage: props.dataLoggingPercentage,
-            // },
         });
         endpointConfig.addDependency(model);
         return endpointConfig;
