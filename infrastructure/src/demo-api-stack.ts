@@ -1,5 +1,5 @@
 import * as apiGW from "@aws-cdk/aws-apigatewayv2-alpha";
-import { HttpMethod, IHttpStage } from "@aws-cdk/aws-apigatewayv2-alpha";
+import { HttpMethod } from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as apiGWIntegrations from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
 import {
     aws_iam as iam,
@@ -40,8 +40,6 @@ const API_LAMBDA: LambdaConfig = {
 };
 
 class DemoAPIStack extends Stack {
-    apiStage: apiGW.IHttpStage;
-    lambdasThatNeedObservability: LambdaConfig[] = [];
     private endpointLambdas: LambdaConfig[] = [];
 
     constructor(scope: Construct, id: string, props: DemoAPIStackProps) {
@@ -62,10 +60,7 @@ class DemoAPIStack extends Stack {
 
         this.enrichLambdas(this.endpointLambdas, accountId, region);
 
-        const api = this.addHttpApi("Demo API", this.endpointLambdas);
-        this.apiStage = api.defaultStage! as IHttpStage;
-
-        this.lambdasThatNeedObservability = this.endpointLambdas;
+        this.addHttpApi("Demo API", this.endpointLambdas);
     }
 
     enrichLambdas(lambdas: LambdaConfig[], accountId: string, region: string): void {
