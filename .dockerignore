@@ -1,0 +1,9 @@
+.git
+.env
+.pytest_cache
+.vscode
+infrastructure
+cdk.out
+tests
+venv
+__pycache__

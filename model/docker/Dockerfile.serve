@@ -1,0 +1,62 @@
+# original: https://github.com/aws/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/Dockerfile
+# TODO: Check whether this is all needed.
+FROM ubuntu:18.04
+
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
+EXPOSE 8080
+
+# Install necessary dependencies for MMS and SageMaker Inference Toolkit
+RUN apt-get --quiet --yes update && \
+    apt-get --yes install --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    openjdk-8-jdk-headless \
+    curl \
+    zlib1g-dev \
+    libncurses5-dev\
+    libgdbm-dev\
+    libnss3-dev\
+    libssl-dev\
+    libreadline-dev\
+    libffi-dev \
+    libsqlite3-dev\
+    wget\
+    libbz2-dev
+
+# Install Python
+
+RUN wget https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tgz  && \
+    tar xzf Python-3.9.4.tgz && \
+    cd Python-3.9.4 && \
+    ./configure --enable-optimizations && \
+    make altinstall && \
+    apt-get --yes install python3-pip
+
+RUN update-alternatives --install /usr/bin/python python /usr/local/bin/python3.9 1
+RUN update-alternatives --install /usr/bin/pip pip /usr/local/bin/pip3.9 1
+
+RUN mkdir -p /opt/ml/model
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY requirements.txt /app/requirements.txt
+
+RUN pip --no-cache-dir install -r requirements.txt
+
+COPY src /app/src
+# Copy entrypoint script to the image
+COPY api.py api.py
+RUN chmod +x api.py
+
+ENV PYTHONUNBUFFERED=TRUE
+ENV PYTHONDONTWRITEBYTECODE=TRUE
+ENV PYTHONPATH=${PYTHONPATH}:/app
+
+# Define an entrypoint script for the docker image
+ENTRYPOINT ["python", "api.py"]
+
+# Define command to be passed to the entrypoint
+CMD ["serve"]

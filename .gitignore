@@ -1,0 +1,5 @@
+lambdas/src/localTesting/app.js
+.env
+yarn-error.log
+version.env
+.mypy_cache

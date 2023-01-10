@@ -1,0 +1,11 @@
+{
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "apiBase": ""
+    },
+    "demo": {
+      "apiBase": "https://fgd8cyekfg.execute-api.eu-west-1.amazonaws.com/",
+    },
+    "rest-client.logLevel": "verbose"
+  }
+}
