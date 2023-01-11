@@ -7,7 +7,6 @@ interface Answers {
     awsBroaderRegion: string;
     awsAccount: string;
     awsRegion: string;
-    hostedZoneDomainName: string;
     modelName: string;
     modelLocation: string;
     modelS3Path?: string;
