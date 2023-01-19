@@ -1,0 +1,12 @@
+{
+  "env": {
+    "account": "111111111111",
+    "region": "eu-west-1"
+  },
+  "modelName": "serverless",
+  "endpointMemorySize": 1024,
+  "endpointMaxConcurrency": 1,
+  "endpointType": "serverless",
+  "huggingFaceTokenizer": "distilbert-base-uncased-finetuned-sst-2-english",
+  "huggingFaceModel": "distilbert-base-uncased-finetuned-sst-2-english"
+}

@@ -5,8 +5,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 TOKENIZER = os.environ.get("HUGGING_FACE_TOKENIZER", "/opt/ml/model")
 MODEL = os.environ.get("HUGGING_FACE_MODEL", "/opt/ml/model")
 
-# NOTE: Adjust this handler if you would like to host a different model than Sequence Classification
-# or even Hugging Face.
+# NOTE: Adjust this handler if you would like to host a different model than
+# Sequence Classification or even Hugging Face.
 
 
 class ModelHandler(object):

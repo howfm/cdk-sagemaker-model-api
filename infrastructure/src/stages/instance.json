@@ -1,0 +1,12 @@
+{
+  "env": {
+    "account": "111111111111",
+    "region": "eu-west-1"
+  },
+  "modelName": "instance",
+  "endpointType": "instance",
+  "instanceType": "ml.m5.xlarge",
+  "instanceCount": 1,
+  "huggingFaceTokenizer": "distilbert-base-uncased-finetuned-sst-2-english",
+  "huggingFaceModel": "distilbert-base-uncased-finetuned-sst-2-english"
+}
