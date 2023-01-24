@@ -5,7 +5,7 @@ install_lambda_dependencies:
 	@cd lambdas && yarn install
 install_dependencies: install_infrastructure_dependencies install_lambda_dependencies
 
-new_stage:
+new_stage: install_infrastructure_dependencies
 	@cd infrastructure && \
 	yarn new-stage
 

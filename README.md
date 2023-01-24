@@ -20,11 +20,9 @@ Be aware that certain fees will be charged for your AWS account (e.g. for [SageM
 
 <details><summary><strong>Prerequisites</strong></summary>
 
-- [AWS CDK Toolkit](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
 - An AWS account and its credentials (we recommend [AWS Vault](https://github.com/99designs/aws-vault) for AWS credentials management)
 - [Docker Client](https://docs.docker.com/get-docker/)
-- [Yarn](https://classic.yarnpkg.com/en/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Node](https://nodejs.org/en/download/) & [Yarn](https://classic.yarnpkg.com/en/)
 </details>
 
 ## Table of Content

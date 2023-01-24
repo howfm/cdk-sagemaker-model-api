@@ -35,6 +35,7 @@
         "aws-cdk-lib": "2.59.0",
         "aws-sdk": "2.1288.0",
         "cdk-ecr-deployment": "2.5.6",
+        "envfile": "^6.18.0",
         "inquirer": "8.1.1",
         "source-map-support": "^0.5.16"
     }
