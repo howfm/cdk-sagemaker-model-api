@@ -1,8 +1,0 @@
-### Run a demo call
-
-POST {{apiBase}}/demo
-Content-Type: application/json
-
-{
-    "inputs": ["I love dogs.", "I am not fond of cats though."]
-}

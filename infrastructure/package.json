@@ -7,28 +7,23 @@
     "scripts": {
         "build": "tsc",
         "watch": "tsc -w",
-        "test": "jest",
         "cdk": "cdk",
-        "lint": "eslint ./src --ext .js,.ts",
         "new-stage": "ts-node scripts/stageWizard.ts",
         "set-stage": "ts-node scripts/setStage.ts",
         "synth": "export $(cat .env | xargs) && cdk synth --context stage=${STAGE} --quiet",
-        "deploy": "cdk deploy --app cdk.out --all"
+        "deploy": "cdk deploy --app cdk.out --all",
+        "destroy": "cdk destroy"
     },
     "devDependencies": {
         "@aws-cdk/assert": "2.59.0",
         "@types/inquirer": "7.3.3",
-        "@types/jest": "^26.0.10",
         "@types/node": "10.17.27",
         "@typescript-eslint/eslint-plugin": "^4.29.3",
         "@typescript-eslint/parser": "^4.29.3",
         "esbuild": "^0.12.24",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
-        "jest": "^26.4.2",
-        "jest-cdk-snapshot": "^1.4.2",
         "prettier": "^2.3.2",
-        "ts-jest": "^26.2.0",
         "ts-node": "^9.0.0",
         "typescript": "~3.9.7"
     },
@@ -40,7 +35,6 @@
         "aws-cdk-lib": "2.59.0",
         "aws-sdk": "2.1288.0",
         "cdk-ecr-deployment": "2.5.6",
-        "envfile": "^6.18.0",
         "inquirer": "8.1.1",
         "source-map-support": "^0.5.16"
     }

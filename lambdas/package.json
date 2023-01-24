@@ -4,10 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "test": "jest --passWithNoTests",
-        "compile": "tsc --noEmit",
-        "format": "yarn prettier --write ./src",
-        "lint": "eslint ./src --ext .ts"
+        "compile": "tsc --noEmit"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.83",
