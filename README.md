@@ -1,6 +1,6 @@
 # Template API to host a 🤗 model on AWS SageMaker
 
-Example API to host a [HuggingFace](https://huggingface.co/) model on AWS SageMaker
+Example API to host a [HuggingFace](https://huggingface.co/) model on AWS SageMaker.
 
 - Written in [CDK](https://github.com/aws/aws-cdk)
 - Stage management for different scenarios and hosting requirements
@@ -78,7 +78,7 @@ The Docker image asset automatically recognizes when the Dockerfile has changed 
 
 ### ModelServingStack
 
-The [ModelServingStack](./infrastructure/src/model-serving-stack.ts) creates the SageMaker Model, Endpoint Configuration, and Endpoint. The model as well as the Endpoint Configuration are always newly created and have the current timestamp in their name (`${endpointName}-MODEL-${time}` and `${endpointName}-CONFIG-${time}`). This is due to the fact, that these resources can not be updated but merely deleted and newly created. The model is based on the docker image created and pushed in the first step and the weights that are specified in `modelDataLocation`. There are two options for the endpoint configuration. A [serverless configuration](https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html) can be configured with the `endpointMemorySize` (default 4096) and `endpointMaxConcurrency` (default 2) properties. The instance based configuration can be configured by specifying the [instance type](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html) with `instanceType` and `instanceCount` (default 1).
+The [ModelServingStack](./infrastructure/src/model-serving-stack.ts) creates the SageMaker Model, Endpoint Configuration, and Endpoint. The model as well as the Endpoint Configuration are always newly created and have the current timestamp in their name (`${modelName}-MODEL-${time}` and `${modelName}-CONFIG-${time}`). This is due to the fact, that these resources can not be updated but merely deleted and newly created. The model is based on the docker image created and pushed in the first step and the weights that are specified in `modelDataLocation`. There are two options for the endpoint configuration. A [serverless configuration](https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html) can be configured with the `endpointMemorySize` (default 4096) and `endpointMaxConcurrency` (default 2) properties. The instance based configuration can be configured by specifying the [instance type](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html) with `instanceType` and `instanceCount` (default 1).
 
 This stack is mostly build according to [this template](https://github.com/aws-samples/amazon-sagemaker-model-serving-using-aws-cdk/blob/main/bin/stack/model-serving/model-serving-stack.ts).
 
