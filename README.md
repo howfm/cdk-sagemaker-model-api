@@ -6,6 +6,7 @@ Example API to host a [HuggingFace](https://huggingface.co/) model on AWS SageMa
 - Stage management for different scenarios and hosting requirements
 - [Serverless](https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html) or instance based SageMaker endpoints
 - Easily switch to another 🤗 model: Pre-trained from the model hub or a custom model stored in S3
+- [Slides](./CAIML_Sagemaker_Talk.pdf) of Richard's talk at [CAIML 23](https://www.meetup.com/de-DE/cologne-ai-and-machine-learning-meetup/events/290008678/)
 
 ## TL;DR
 
